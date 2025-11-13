@@ -4,6 +4,7 @@ Created : 2015-03-12
 
 @author: Eric Lapouyade
 """
+from __future__ import annotations
 
 from os import PathLike
 from typing import TYPE_CHECKING, Any, Optional, IO, Union, Dict, Set
@@ -537,7 +538,7 @@ class DocxTemplate(object):
                 width = 0.0
                 new_average = None
                 for c in columns:
-                    if not c.get(ns + "w") is None:
+                    if c.get(ns + "w") is not None:
                         width += float(c.get(ns + "w"))
                 # try to keep proportion of table
                 if width > 0:
